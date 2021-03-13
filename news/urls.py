@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
+from articles import views
+from rest_framework import routers
+from users.views import UserViewSet
+from articles.views import ArticleViewSet
+
+router = routers.SimpleRouter()
+router.register(r'api/users', UserViewSet, 'User')
+router.register(r'api/articles', ArticleViewSet, 'Article')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'api/', include('knox.urls'))
 ]
+urlpatterns += router.urls
