@@ -23,6 +23,8 @@ from users.api.views import FacebookLogin, TwitterLogin,FacebookConnect,TwitterC
 from rest_auth.registration.views import (
     SocialAccountListView, SocialAccountDisconnectView
 )
+from django.conf.urls.static import static
+from news import settings
 
 
 router = routers.SimpleRouter()
@@ -42,7 +44,7 @@ urlpatterns = [
         SocialAccountDisconnectView.as_view(),
         name='social_account_disconnect'
     )
-
-
 ]
 urlpatterns += router.urls
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
