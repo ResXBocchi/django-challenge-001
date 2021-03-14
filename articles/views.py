@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Article, Category
+from .permissions import IsAdminOrReadOnly
+from .models import Article
 from .serializers import ArticleSerializer
-import django_filters.rest_framework
+from rest_framework import generics
 
-# Create your views here.
 class ArticleViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAdminOrReadOnly,)
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    
+    filterset_fields = ['category']

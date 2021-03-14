@@ -1,34 +1,20 @@
 from django.db import models
-from news import settings
+from authors.models import Author
 import uuid
 
 # Create your models here.
 
-class Base(models.Model):
-    uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
-    created_at = models.DateTimeField(null=False, blank=True, auto_now_add=True)
-    updated_at = models.DateTimeField(null=False, blank=True, auto_now=True)
-    title = models.CharField(max_length=60, null=False)
+class Article(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        Author,
         on_delete=models.CASCADE,
     )
-
-    class Meta:
-        abstract = True
-
-class Category(Base):
-    pass
-
-class Article(Base):
-    
-    category = models.ForeignKey(
-        Category,
-        on_delete=models.CASCADE,
-        blank=True,
-    )
+    category = models.SlugField(max_length=64)
+    title = models.CharField(max_length=60, null=False)
     summary = models.CharField(max_length=256)
     firstParagraph = models.TextField()
     body = models.TextField()
-
+    created_at = models.DateTimeField(null=False, blank=True, auto_now_add=True)
+    updated_at = models.DateTimeField(null=False, blank=True, auto_now=True)
     
