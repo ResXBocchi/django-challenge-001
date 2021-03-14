@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Author
+from authors.models import Author
 from .serializers import AuthorSerializer
 # Create your views here.
 

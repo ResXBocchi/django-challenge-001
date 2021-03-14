@@ -16,13 +16,33 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from authors.views import AuthorViewSet
-from articles.views import ArticleViewSet
+from django.conf.urls import url
+from authors.api.views import AuthorViewSet
+from articles.api.views import ArticleViewSet
+from users.api.views import FacebookLogin, TwitterLogin,FacebookConnect,TwitterConnect
+from rest_auth.registration.views import (
+    SocialAccountListView, SocialAccountDisconnectView
+)
+
 
 router = routers.SimpleRouter()
 router.register(r'api/articles', ArticleViewSet, 'Article')
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
+    url(r'api/', include('rest_auth.urls')),
+    url(r'api/signup', include('rest_auth.registration.urls')),
+    url(r'^api/login/facebook', FacebookLogin.as_view(), name='fb_login'),
+    url(r'^api/login/twitter', TwitterLogin.as_view(), name='twitter_login'),
+    url(r'^api/connect/facebook', FacebookConnect.as_view(), name='fb_connect'),
+    url(r'^api/connect/twitter', TwitterConnect.as_view(), name='twitter_connect'),
+    url(r'^socialaccounts', SocialAccountListView.as_view(), name='social_account_list'),
+    url(
+        r'^socialaccounts/(?P<pk>\d+)/disconnect',
+        SocialAccountDisconnectView.as_view(),
+        name='social_account_disconnect'
+    )
+
+
 ]
 urlpatterns += router.urls
