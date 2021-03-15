@@ -21,8 +21,6 @@ from authors.api.views import AuthorAdminViewSet
 from articles.api.views import ArticleViewSet, ArticleAdminViewSet
 from django.conf.urls.static import static
 from news import settings
-from rest_auth import registration
-
 
 router = routers.SimpleRouter()
 router.register(r'api/articles', ArticleViewSet, 'Article')
