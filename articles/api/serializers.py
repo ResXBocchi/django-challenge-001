@@ -2,6 +2,7 @@ from rest_framework import serializers
 from authors.api.serializers import AuthorSerializer
 from articles.models import Article
 from news import settings
+from authors.models import Author
 
 class ArticleSerializer(serializers.ModelSerializer):
 
@@ -18,3 +19,12 @@ class ArticleSerializer(serializers.ModelSerializer):
         if request.auth is None:
             fields.pop('body', None)
         return fields
+
+    def __init__(self, *args, **kwargs):
+        super(ArticleSerializer, self).__init__(*args, **kwargs)
+
+        try:
+            if self.context['request'].method in ['POST', 'PUT']:
+                self.fields['author'] = serializers.PrimaryKeyRelatedField(queryset=Author.objects.all())
+        except KeyError:
+            pass

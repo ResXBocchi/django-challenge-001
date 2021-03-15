@@ -32,8 +32,8 @@ router.register(r'api/articles', ArticleViewSet, 'Article')
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
-    url(r'api/', include('rest_auth.urls')),
-    url(r'api/signup', include('rest_auth.registration.urls')),
+    url(r'^api/', include('rest_auth.urls')),
+    url(r'^api/signup', include('rest_auth.registration.urls')),
     url(r'^api/login/facebook', FacebookLogin.as_view(), name='fb_login'),
     url(r'^api/login/twitter', TwitterLogin.as_view(), name='twitter_login'),
     url(r'^api/connect/facebook', FacebookConnect.as_view(), name='fb_connect'),
