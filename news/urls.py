@@ -21,6 +21,7 @@ from authors.api.views import AuthorAdminViewSet
 from articles.api.views import ArticleViewSet, ArticleAdminViewSet
 from django.conf.urls.static import static
 from news import settings
+from rest_auth import registration
 
 
 router = routers.SimpleRouter()
@@ -31,6 +32,7 @@ router.register(r'api/admin/authors', AuthorAdminViewSet, basename='adm_author')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('django.contrib.auth.urls')),
     url(r'^api/', include('rest_auth.urls')),
     url(r'^api/signup', include('rest_auth.registration.urls')),
   
