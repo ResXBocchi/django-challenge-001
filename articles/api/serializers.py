@@ -20,8 +20,18 @@ class ArticleSerializer(serializers.ModelSerializer):
             fields.pop('body', None)
         return fields
 
+        
+class ArticleAdminSerializer(serializers.ModelSerializer):
+
+    author = AuthorSerializer()
+
+    class Meta:
+        model = Article
+        fields=('__all__')
+        depth = 1
+
     def __init__(self, *args, **kwargs):
-        super(ArticleSerializer, self).__init__(*args, **kwargs)
+        super(ArticleAdminSerializer, self).__init__(*args, **kwargs)
 
         try:
             if self.context['request'].method in ['POST', 'PUT']:

@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from django.conf.urls import url
-from authors.api.views import AuthorViewSet
-from articles.api.views import ArticleViewSet
+from authors.api.views import AuthorAdminViewSet
+from articles.api.views import ArticleViewSet, ArticleAdminViewSet
 from users.api.views import FacebookLogin, TwitterLogin,FacebookConnect,TwitterConnect
 from rest_auth.registration.views import (
     SocialAccountListView, SocialAccountDisconnectView
@@ -29,9 +29,12 @@ from news import settings
 
 router = routers.SimpleRouter()
 router.register(r'api/articles', ArticleViewSet, 'Article')
+router.register(r'api/admin/articles', ArticleAdminViewSet, basename='adm_article')
+router.register(r'api/admin/authors', AuthorAdminViewSet, basename='adm_author')
+
 
 urlpatterns = [
-    path('api/admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     url(r'^api/', include('rest_auth.urls')),
     url(r'^api/signup', include('rest_auth.registration.urls')),
     url(r'^api/login/facebook', FacebookLogin.as_view(), name='fb_login'),
