@@ -1,0 +1,993 @@
+{
+	"info": {
+		"_postman_id": "3943cb7b-b919-4704-99c7-49fcc2eb5a9e",
+		"name": "django-challenge-001",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/articles",
+			"item": [
+				{
+					"name": "ANON GET REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/articles/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTH GET LIST REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token f4a766b2378285e44a72e4c7e8ef86d75d1557a0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/articles/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTH GET RETRIEVE REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token f4a766b2378285e44a72e4c7e8ef86d75d1557a0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/articles/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"articles",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTH POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token f4a766b2378285e44a72e4c7e8ef86d75d1557a0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/articles/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ANON POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/articles/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERED GET REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/articles/?category=:slug/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"articles",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": ":slug/"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/api/admin/articles/",
+			"item": [
+				{
+					"name": "ADM PANEL POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "author",
+									"value": "37a72594-840a-4222-ab83-86dc5a5e9933",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Technology",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Altcoin Mining",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "Learn to mine like a Dwarf!",
+									"type": "text"
+								},
+								{
+									"key": "firstParagraph",
+									"value": "That is interesting!",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "And so on...",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/articles/article/add/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"articles",
+								"article",
+								"add",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN GET REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/articles/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"author\": \"37a72594-840a-4222-ab83-86dc5a5e9933\",\r\n            \"category\": \"Technology\",\r\n            \"title\": \"Altcoin Mining\",\r\n            \"summary\": \"Learn to mine like a Dwarf!\",\r\n            \"firstParagraph\": \"That is interesting!\",\r\n            \"body\": \"And so on...\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/articles/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN DELETE REQUEST",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post",
+									"value": "yes",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/articles/:id/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN PATCH REQUEST",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Some Name\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/authors/:id/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"authors",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN PUT REQUEST",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							},
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"author\":\"AUTHOR_ID\",\r\n    \"category\": \"Technology\",\r\n    \"title\": \"Ethereum Mining\",\r\n    \"summary\": \"Ethereum miners are planing a move against the developers!\",\r\n    \"firstParagraph\": \"That is interesting\",\r\n    \"body\": \"But it could lead to vulnerabilities in the platform\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/articles/:id/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "LOGIN POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"challenge\",\r\n    \"password\": \"challenge\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGOUT POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logout/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RESET PASSWORD POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n//The uid and token are obtained in the link showed in the console which is running the server.\r\n//http://127.0.0.1:8000/reset/UID/TOKEN/\r\n    \"uid\":\"NQ\",\r\n    \"token\":\"ajk2o6-d19116132eebb26b2867b966e147b74d\",\r\n    \"new_password1\":\"s0m3P4ssword!\",\r\n    \"new_password2\":\"s0m3P4ssword!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/password/reset/confirm/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"password",
+								"reset",
+								"confirm",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RESET PASSWORD CONFIRMATION POST REQUEST Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"uid\":\"NQ\",\r\n    \"token\":\"ajk2o6-d19116132eebb26b2867b966e147b74d\",\r\n    \"new_password1\":\"s0m3P4ssword!\",\r\n    \"new_password2\":\"s0m3P4ssword!\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/password/reset/confirm/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"password",
+								"reset",
+								"confirm",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SIGNUP POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"resx\",\r\n    \"password1\":\"pass123!\",\r\n    \"password2\":\"pass123!\",\r\n    \"email\":\"bocchi.dev@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/signup",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTH CHANGE PASSWORD POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token f4a766b2378285e44a72e4c7e8ef86d75d1557a0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"new_password1\":\"P4sSw0rD!\",\r\n    \"new_password2\":\"P4sSw0rD!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/password/change/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"password",
+								"change",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/api/admin/authors/",
+			"item": [
+				{
+					"name": "ADMIN POST REQUEST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							},
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "John Doe",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": "/C:/Users/ResX/Downloads/ovni.jpg"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "And so on..",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/authors/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN PUT REQUEST",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Someone",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": "/C:/Users/ResX/Downloads/owasp.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/authors/:id/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN GET REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/authors/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN DELETE REQUEST",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post",
+									"value": "yes",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/authors/:id/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN PATCH REQUEST",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "zSiYetTtvj1aOR3i6LhvlejXwf2i0AyShqtCM5mJjDUFGGC1owzDktnlmbPfSNKa",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token e5b88a60e770abc95f72d2fbd5bab2a813fc0679",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Somename\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/authors/37a72594-840a-4222-ab83-86dc5a5e9933/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								"37a72594-840a-4222-ab83-86dc5a5e9933",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

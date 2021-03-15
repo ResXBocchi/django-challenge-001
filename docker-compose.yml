@@ -1,5 +1,6 @@
-version: '3.0'
+version: '3.7'
 services:
+    
   db:
     image: postgres:12
     ports:
@@ -7,3 +8,18 @@ services:
     environment:
       POSTGRES_PASSWORD: "challenge"
       POSTGRES_DB: "challenge"
+
+  web:
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
