@@ -8,7 +8,7 @@
 
 
 - Create a .env file in the root folder with the following parameters:
-    
+```  
     SECRET_KEY=s)qw=n4p&pa(&2)qi*01o&_@di*ap(hsnf!7r3nwgs5!s-af%z
     ENGINE=django.db.backends.postgresql
     NAME=challenge
@@ -16,7 +16,7 @@
     PASSWORD=challenge
     HOST=db
     PORT=5432
-
+```
 In order to Run this API in development mode, one should:
 
 - Run Docker Compose:
