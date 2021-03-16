@@ -7,6 +7,7 @@
 - [Git](https://git-scm.com/)
 
 
+
 - Create a .env file in the root folder with the following parameters:
 ```  
     SECRET_KEY=s)qw=n4p&pa(&2)qi*01o&_@di*ap(hsnf!7r3nwgs5!s-af%z
@@ -18,6 +19,16 @@
     PORT=5432
 ```
 In order to Run this API in development mode, one should:
+
+- Create a virtual environment with python:
+    `python -m virtualenv venv`
+
+- Activate the environment:
+    `.\venv\Scripts\activate` (Windows) or
+    `source venv/bin/activate`(Unix)
+
+- Make migrations and migrate:
+    `python manage.py makemigrations && python manage.py migrate`
 
 - Run Docker Compose:
     `docker-compose up`
