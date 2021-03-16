@@ -17,6 +17,7 @@
     PASSWORD=challenge
     HOST=db
     PORT=5432
+    DEBUG=True
 ```
 In order to Run this API in development mode, one should:
 
