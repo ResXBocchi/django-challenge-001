@@ -28,11 +28,14 @@ In order to Run this API in development mode, one should:
     `.\venv\Scripts\activate` (Windows) or
     `source venv/bin/activate`(Unix)
 
-- Make migrations and migrate:
-    `python manage.py makemigrations && python manage.py migrate`
+- Install requirements:
+    `pip install -r requirements.txt`
 
 - Run Docker Compose:
     `docker-compose up`
+
+- Make migrations and migrate:
+    `python manage.py makemigrations && python manage.py migrate`
 
 - Create a superuser by running 
     `python manage.py createsuperuser`
